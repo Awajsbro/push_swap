@@ -6,7 +6,7 @@
 #    By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/28 16:56:20 by awajsbro          #+#    #+#              #
-#    Updated: 2018/04/02 17:37:31 by awajsbro         ###   ########.fr        #
+#    Updated: 2018/04/06 18:25:12 by awajsbro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,22 +14,25 @@ NAMEPS		= push_swap
 
 NAMECHECK	= checker
 
-SRCCOM		=	ft_get_arg.c \
-				ft_init.c \
+SRCCOM		=	src/ft_get_arg.c \
+				src/ft_init.c \
+				src/ft_rule.c \
+				src/ft_error.c \
+				src/ft_del.c \
 
-SRCPS		=	push_swap.c\
+SRCPS		=	src/push_swap.c\
 
-SRCCHECK	=	checker.c \
+SRCCHECK	=	src/checker.c \
 
 SRC			=	$(SRCCOM) $(SRCPS) $(SRCCHECK)
 
-OBJCOM		=	$(SRCCOM:.c=.o)
+OBJCOM		=	$(notdir $(SRCCOM:.c=.o))
 
-OBJPS		=	$(SRCPS:.c=.o)
+OBJPS		=	$(notdir $(SRCPS:.c=.o))
 
-OBJCHECK	=	$(SRCCHECK:.c=.o)
+OBJCHECK	=	$(notdir $(SRCCHECK:.c=.o))
 
-OBJ			=	$(SRCPS:.c=.o) $(SRCCHECK:.c=.o) $(SRCCOM:.c=.o)
+OBJ			=	$(OBJPS) $(OBJCHECK) $(OBJCOM)
 
 OBJDIR		=	obj/
 

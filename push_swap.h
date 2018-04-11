@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:11:01 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/06 17:57:10 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/11 18:59:26 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+
+# define M_COLOR		0x01
+# define M_VISUAL		0x02
+# define M_ERROR		0x04
+# define M_INF			0x08
 
 typedef struct	s_ps
 {
@@ -24,15 +29,24 @@ typedef struct	s_ps
 	int			fdw;
 }				t_ps;
 
-char			**ft_merge(long *ac, char **av);
-void			ft_check_arg(long ac, char **av, long i, t_ps *ps);
-void			ft_get_setting(long ac, char **av, long *i, t_ps *ps);
-void			ft_get_arg(long ac, char **av, long i, t_ps *ps);
+char			**ft_merge(long long *ac, char **av);
+void			ft_check_arg(long long ac, char **av, long long i, t_ps *ps);
+void			ft_get_setting(long long ac, char **av, long long *i, t_ps *ps);
+void			ft_get_arg(long long ac, char **av, long long i, t_ps *ps);
+void			ft_get_cmd(t_ps *ps);
 void			ft_push(t_ps *ps, char m);
 void			ft_swap(t_ps *ps, char m);
 void			ft_roll(t_ps *ps, char m);
 void			ft_revers_roll(t_ps *ps, char m);
-void			ft_error(char **av, long i, long j, t_ps *ps);
-void			ft_deltab(char **av, long len);
+void			ft_error(char **av, long long i, long long j, t_ps *ps);
+void			ft_error_cm(char *cm,t_ps *ps);
+void			ft_error_double(t_list *tmp, t_ps ps);
+void			ft_deltab(char **av, long long len);
+void			ft_dellst(t_ps *ps);
+
+ /*
+ **		##	debug ##
+ */
+void	ft_lstdebug(t_list *lst, char *s);
 
 #endif

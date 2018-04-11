@@ -6,7 +6,7 @@
 #    By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/28 16:56:20 by awajsbro          #+#    #+#              #
-#    Updated: 2018/04/06 18:25:12 by awajsbro         ###   ########.fr        #
+#    Updated: 2018/04/11 18:54:59 by awajsbro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,13 @@ SRCCOM		=	src/ft_get_arg.c \
 				src/ft_rule.c \
 				src/ft_error.c \
 				src/ft_del.c \
+				\
+				src/debug.c \
 
 SRCPS		=	src/push_swap.c\
 
-SRCCHECK	=	src/checker.c \
+SRCCHECK	=	src/main_checker.c \
+				src/ft_command.c \
 
 SRC			=	$(SRCCOM) $(SRCPS) $(SRCCHECK)
 

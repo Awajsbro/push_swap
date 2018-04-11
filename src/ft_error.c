@@ -6,19 +6,13 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 12:37:03 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/06 18:25:58 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/11 19:04:16 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-#define M_COLOR		0x01
-#define M_VISUAL	0x02
-#define M_LONG		0x04
-#define M_ERROR		0x08
-#define M_INF		0x10
-
-static void	ft_more_error(char **av, long i, long j, t_ps *ps)
+static void	ft_more_error(char **av, long long i, long long j, t_ps *ps)
 {
 	if (i == 2)
 		ft_printf("%[fd2]\"%s\" isn't an int value, please try '-l' "
@@ -27,13 +21,6 @@ static void	ft_more_error(char **av, long i, long j, t_ps *ps)
 		ft_printf("%[fd2]%{rou}\"%s\"\033[0m isn't a valid number\n", av[j]);
 	else if (i == 3)
 		ft_printf("%[fd2]\"%s\" isn't a valid number\n", av[j]);
-	else if (i == 4 && M_COLOR == (M_COLOR & ps->opt))
-		ft_printf("%[fd2]%{rou}\"%s\"\033[0m is more than 64bit value, can't "
-			"store it with or without "
-				"%{ble}%{state_gras}'-l'\033[0m option\n", av[j]);
-	else if (i == 4)
-		ft_printf("%[fd2]\"%s\" is more than 64bit value, can't store it "
-			"with or without '-l' option\n", av[j]);
 	else if (i == 0)
 		ft_printf("%[fd2]usage: %s [-c | -v | -l | -e | -i | [-r <path>] | "
 			"[-w <path>]] %{state_soul}Data ...\033[0m\n", &av[0][2]);
@@ -43,7 +30,7 @@ static void	ft_more_error(char **av, long i, long j, t_ps *ps)
 		ft_putendl_fd("si tu vois ça c'est que je suis full planté", 2);
 }
 
-void		ft_error(char **av, long i, long j, t_ps *ps)
+void		ft_error(char **av, long long i, long long j, t_ps *ps)
 {
 	if (M_ERROR != (M_ERROR & ps->opt))
 	{
@@ -65,4 +52,30 @@ void		ft_error(char **av, long i, long j, t_ps *ps)
 			"%{ble}%{state_gras}'-l'\033[0m option\n", av[j]);
 	else
 		ft_more_error(av, i, j, ps);
+}
+
+void		ft_error_cm(char *cm, t_ps *ps)
+{
+	if (M_ERROR != (M_ERROR & ps->opt))
+		write(2, "Error\n", 6);
+	else if (M_COLOR == (M_COLOR & ps->opt))
+		ft_printf("%[fd2]%{rou}\"%s\"\033[0m isn't a valid command\n", cm);
+	else
+		ft_printf("%[fd2]\"%s\" isn't a valid command\n", cm);
+}
+
+void		ft_error_double(t_list *tmp, t_ps ps)
+{
+	if (M_ERROR != (M_ERROR & ps.opt))
+		write(2, "Error\n", 6);
+	else if (M_COLOR == (M_COLOR & ps.opt))
+	{
+		ft_printf("%[fd2]the \033[31m\"%s\"\033[0m] value "
+			"is gived twice time or more\n", tmp->content);
+	}
+	else
+	{
+		ft_printf("%[fd2]the \"%s\" value is gived"
+			" twice time or more\n", tmp->content);
+	}
 }

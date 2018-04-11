@@ -6,20 +6,43 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:30:54 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/07 18:11:41 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/11 19:03:03 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-#define M_COLOR		0x01
-#define M_VISUAL	0x02
-#define M_LONG		0x04
-#define M_ERROR		0x08
-#define M_INF		0x10
-
-static void	ft_end_of_setting(char **av, t_ps *ps)
+void		ft_get_setting(long long ac, char **av, long long *i, t_ps *ps)
 {
+	while (av[*i][0] == '-' && ft_isdigit(av[*i][1]) == 0)
+	{
+		if (av[*i][1] == 'r' || av[*i][1] == 'R')
+		{
+			(*i)++;
+			ps->fdr = *i;
+		}
+		else if (av[*i][1] == 'w' || av[*i][1] == 'W')
+		{
+			(*i)++;
+			ps->fdw = *i;
+		}
+		else if (av[*i][1] == 'c' || av[*i][1] == 'C')
+			ps->opt = (ps->opt | M_COLOR);
+		else if (av[*i][1] == 'v' || av[*i][1] == 'V')
+			ps->opt = (ps->opt | M_VISUAL);
+		else if (av[*i][1] == 'e' || av[*i][1] == 'E')
+			ps->opt = (ps->opt | M_ERROR);
+		else if (av[*i][1] == 'i' || av[*i][1] == 'I')
+			ps->opt = (ps->opt | M_INF);
+		else
+		{
+			ft_error(av, 0, 0, ps);
+			exit(EXIT_FAILURE);
+		}
+		(*i)++;
+		if (*i == ac)
+			break ;
+	}
 	if (ft_strcmp(av[ps->fdr], av[ps->fdw]) == 0 && ps->fdr != 0)
 	{
 		ps->fdr = open(av[ps->fdr], O_RDWR | O_APPEND);
@@ -39,45 +62,9 @@ static void	ft_end_of_setting(char **av, t_ps *ps)
 	}
 }
 
-void		ft_get_setting(long ac, char **av, long *i, t_ps *ps)
+void		ft_check_arg(long long ac, char **av, long long i, t_ps *ps)
 {
-	while (av[*i][0] == '-' && ft_isdigit(av[*i][1]) == 0)
-	{
-		if (av[*i][1] == 'r' || av[*i][1] == 'R')
-		{
-			(*i)++;
-			ps->fdr = *i;
-		}
-		else if (av[*i][1] == 'w' || av[*i][1] == 'W')
-		{
-			(*i)++;
-			ps->fdw = *i;
-		}
-		else if (av[*i][1] == 'c' || av[*i][1] == 'C')
-			ps->opt = (ps->opt | M_COLOR);
-		else if (av[*i][1] == 'v' || av[*i][1] == 'V')
-			ps->opt = (ps->opt | M_VISUAL);
-		else if (av[*i][1] == 'l' || av[*i][1] == 'L')
-			ps->opt = (ps->opt | M_LONG);
-		else if (av[*i][1] == 'e' || av[*i][1] == 'E')
-			ps->opt = (ps->opt | M_ERROR);
-		else if (av[*i][1] == 'i' || av[*i][1] == 'I')
-			ps->opt = (ps->opt | M_INF);
-		else
-		{
-			ft_error(av, 0, 0, ps);
-			exit(EXIT_FAILURE);
-		}
-		(*i)++;
-		if (*i == ac)
-			break ;
-	}
-	ft_end_of_setting(av, ps);
-}
-
-void		ft_check_arg(long ac, char **av, long i, t_ps *ps)
-{
-	long		j;
+	long long		j;
 	long long	tmp;
 	char		cnt;
 	char		len;
@@ -92,11 +79,8 @@ void		ft_check_arg(long ac, char **av, long i, t_ps *ps)
 		cnt = tmp < 0 ? ft_cntb(tmp, 10) + 1 : ft_cntb(tmp, 10);
 		if (ft_strdigit(av[j]) == 0)
 			i = ac + 2;
-		else if ((ft_istrcmp(av[j], "-9223372036854775808") == -1
-			|| ft_istrcmp(av[j], "9223372036854775807") == 1))
-			i = ac + 3;
 		else if ((tmp > 2147483647 || tmp < -2147483648)
-			&& (ps->opt & M_LONG) != M_LONG)
+			&& (ps->opt & M_INF) != M_INF)
 			i = ac + 1;
 		i++;
 	}
@@ -108,13 +92,13 @@ void		ft_check_arg(long ac, char **av, long i, t_ps *ps)
 	}
 }
 
-static char	**ft_real_merge(long *ac, char **av, long cnt)
+static char	**ft_real_merge(long long *ac, char **av, long long cnt)
 {
 	char	**tab;
-	char  	**tmp;
-	long	i;
-	long	j;
-	long	w;
+	char	**tmp;
+	long long	i;
+	long long	j;
+	long long	w;
 
 	tab = (char**)malloc(sizeof(tab) * cnt);
 	cnt = 0;
@@ -143,11 +127,11 @@ static char	**ft_real_merge(long *ac, char **av, long cnt)
 	return (tab);
 }
 
-char	**ft_merge(long *ac, char **av)
+char	**ft_merge(long long *ac, char **av)
 {
-	long	i;
-	long	j;
-	long	cnt;
+	long long	i;
+	long long	j;
+	long long	cnt;
 
 	i = -1;
 	cnt = 0;

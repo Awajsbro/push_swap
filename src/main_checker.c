@@ -6,29 +6,11 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 18:43:06 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/11 19:16:20 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/15 14:17:39 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-static char	ft_check_order(t_ps *ps)
-{
-	long long	i;
-
-	i = 0;
-	if (ps->lpb != NULL)
-		return (0);
-	ps->lpa = ft_lststart(ps->lpa);
-	while (ps->lpa != NULL)
-	{
-		i++;
-		if (i != ps->lpa->size)
-			return (0);
-		ps->lpa = ps->lpa->next;
-	}
-	return (1);
-}
 
 static void	ft_checker(long long ac, char **av, t_ps *ps)
 {
@@ -65,6 +47,7 @@ int			main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
+	ps.pro = 0;
 	ps.fdr = 0;
 	ps.fdw = 1;
 	j = ac;

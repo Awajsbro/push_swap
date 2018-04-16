@@ -6,7 +6,7 @@
 #    By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/28 16:56:20 by awajsbro          #+#    #+#              #
-#    Updated: 2018/04/11 18:54:59 by awajsbro         ###   ########.fr        #
+#    Updated: 2018/04/15 15:03:30 by awajsbro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAMEPS		= push_swap
 NAMECHECK	= checker
 
 SRCCOM		=	src/ft_get_arg.c \
+				src/setting.c \
 				src/ft_init.c \
 				src/ft_rule.c \
 				src/ft_error.c \
@@ -22,7 +23,8 @@ SRCCOM		=	src/ft_get_arg.c \
 				\
 				src/debug.c \
 
-SRCPS		=	src/push_swap.c\
+SRCPS		=	src/main_push_swap.c \
+				src/ft_solve.c \
 
 SRCCHECK	=	src/main_checker.c \
 				src/ft_command.c \

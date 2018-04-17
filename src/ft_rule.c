@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 10:15:36 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/15 15:18:54 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/17 17:54:25 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_push(t_ps *ps, char m)
 		{
 			ps->lpb = ft_lststart(ps->lpb);
 			ft_lstaddstart(&(ps->lpa), ft_lstremove(&(ps->lpb)));
+			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_PA, 1));
 		}
 	}
 	else if (m == 'b')
@@ -28,10 +29,13 @@ void	ft_push(t_ps *ps, char m)
 		{
 			ps->lpa = ft_lststart(ps->lpa);
 			ft_lstaddstart(&(ps->lpb), ft_lstremove(&(ps->lpa)));
+			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_PB, 1));
 		}
 	}
-	if (ps->pro == 1)
-		ft_printf("%[fd*]p%c\n", ps->fdw, m);
+	// ft_printf("%[fd*]p%c\n", ps->fdw, m);
+	// ft_lstdebug(ps);
+	ps->lpa = ft_lststart(ps->lpa);
+	ps->lpb = ft_lststart(ps->lpb);
 }
 
 void	ft_swap(t_ps *ps, char m)
@@ -43,6 +47,7 @@ void	ft_swap(t_ps *ps, char m)
 			ps->lpa = ft_lststart(ps->lpa);
 			ps->lpa = ps->lpa->next;
 			ft_lstaddstart(&(ps->lpa), ft_lstremove(&(ps->lpa)));
+			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_SA, 1));
 		}
 	}
 	if (m == 'b' || m == 's')
@@ -52,10 +57,13 @@ void	ft_swap(t_ps *ps, char m)
 			ps->lpb = ft_lststart(ps->lpb);
 			ps->lpb = ps->lpb->next;
 			ft_lstaddstart(&(ps->lpb), ft_lstremove(&(ps->lpb)));
+			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_SB, 1));
 		}
 	}
-	if (ps->pro == 1)
-		ft_printf("%[fd*]s%c\n", ps->fdw, m);
+	// ft_printf("%[fd*]s%c\n", ps->fdw, m);
+	// ft_lstdebug(ps);
+	ps->lpa = ft_lststart(ps->lpa);
+	ps->lpb = ft_lststart(ps->lpb);
 }
 
 void	ft_roll(t_ps *ps, char m)
@@ -66,6 +74,7 @@ void	ft_roll(t_ps *ps, char m)
 		{
 			ps->lpa = ft_lststart(ps->lpa);
 			ft_lstaddend(&(ps->lpa), ft_lstremove(&(ps->lpa)));
+			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_RA, 1));
 		}
 	}
 	if (m == 'b' || m == 'r')
@@ -74,10 +83,13 @@ void	ft_roll(t_ps *ps, char m)
 		{
 			ps->lpb = ft_lststart(ps->lpb);
 			ft_lstaddend(&(ps->lpb), ft_lstremove(&(ps->lpb)));
+			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_RB, 1));
 		}
 	}
-	if (ps->pro == 1)
-		ft_printf("%[fd*]r%c\n", ps->fdw, m);
+	// ft_printf("%[fd*]r%c\n", ps->fdw, m);
+	// ft_lstdebug(ps);
+	ps->lpa = ft_lststart(ps->lpa);
+	ps->lpb = ft_lststart(ps->lpb);
 }
 
 void	ft_revers_roll(t_ps *ps, char m)
@@ -88,6 +100,7 @@ void	ft_revers_roll(t_ps *ps, char m)
 		{
 			ps->lpa = ft_lstend(ps->lpa);
 			ft_lstaddstart(&(ps->lpa), ft_lstremove(&(ps->lpa)));
+			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_RRA, 1));
 		}
 	}
 	if (m == 'b' || m == 'r')
@@ -96,10 +109,13 @@ void	ft_revers_roll(t_ps *ps, char m)
 		{
 			ps->lpb = ft_lstend(ps->lpb);
 			ft_lstaddstart(&(ps->lpb), ft_lstremove(&(ps->lpb)));
+			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_RRA, 1));
 		}
 	}
-	if (ps->pro == 1)
-		ft_printf("%[fd*]rr%c\n", ps->fdw, m);
+	// ft_printf("%[fd*]rr%c\n", ps->fdw, m);
+	// ft_lstdebug(ps);
+	ps->lpa = ft_lststart(ps->lpa);
+	ps->lpb = ft_lststart(ps->lpb);
 }
 
 char	ft_check_order(t_ps *ps)

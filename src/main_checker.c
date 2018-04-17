@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 18:43:06 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/15 14:17:39 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/17 16:09:05 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int			main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	ps.pro = 0;
 	ps.fdr = 0;
 	ps.fdw = 1;
 	j = ac;

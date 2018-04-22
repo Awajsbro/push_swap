@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/01 18:16:42 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/15 15:37:07 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	ft_order_str(t_ps *ps)
 {
-	long long	len;
-	long long	pos;
+	int	len;
+	int	pos;
 	t_list		*tmp;
 	t_list		*cp;
 
@@ -62,7 +62,7 @@ static char	ft_check_double(t_ps ps)
 	return (1);
 }
 
-void		ft_get_arg(long long ac, char **av, long long i, t_ps *ps)
+void		ft_get_arg(int ac, char **av, int i, t_ps *ps)
 {
 	ps->lpa = ft_lstnew(ft_strdup(av[i]), 0);
 	while (++i < ac)
@@ -75,5 +75,6 @@ void		ft_get_arg(long long ac, char **av, long long i, t_ps *ps)
 		exit(EXIT_FAILURE);
 	}
 	ft_order_str(ps);
+	ps->len = ft_lstlen(ps->lpa);
 	ps->lpb = NULL;
 }

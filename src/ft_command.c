@@ -6,13 +6,13 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 15:06:20 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/11 18:57:57 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	ft_exec_cmd(char *s, long long i, t_ps *ps)
+static void	ft_exec_cmd(char *s, int i, t_ps *ps)
 {
 	if (ft_strnequ(&s[i], "rra\n", 4))
 		ft_revers_roll(ps, 'a');
@@ -40,7 +40,7 @@ static void	ft_exec_cmd(char *s, long long i, t_ps *ps)
 
 static char	ft_check_cmd(char *s, t_ps *ps)
 {
-	long long	i;
+	int	i;
 
 	i = 0;
 	while (s[i] != 0)

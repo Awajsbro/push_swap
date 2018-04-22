@@ -6,15 +6,15 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:06:44 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/12 17:40:31 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	ft_more_space(long long ac, char **av, long long *i, t_ps *ps)
+static void	ft_more_space(int ac, char **av, int *i, t_ps *ps)
 {
-	long long	j;
+	int	j;
 
 	j = 0;
 	while (av[*i][++j] != 0)
@@ -36,7 +36,7 @@ static void	ft_more_space(long long ac, char **av, long long *i, t_ps *ps)
 	}
 }
 
-void		ft_get_setting(long long ac, char **av, long long *i, t_ps *ps)
+void		ft_get_setting(int ac, char **av, int *i, t_ps *ps)
 {
 	while (av[*i][0] == '-' && ft_isdigit(av[*i][1]) == 0)
 	{

@@ -6,13 +6,13 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 12:37:03 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/12 16:48:56 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	ft_more_error(char **av, long long i, long long j, t_ps *ps)
+static void	ft_more_error(char **av, int i, int j, t_ps *ps)
 {
 	if (i == 2)
 		ft_printf("%[fd2]\"%s\" isn't an int value, please try '-i' "
@@ -30,7 +30,7 @@ static void	ft_more_error(char **av, long long i, long long j, t_ps *ps)
 		ft_putendl_fd("si tu vois ça c'est que je suis full planté", 2);
 }
 
-void		ft_error(char **av, long long i, long long j, t_ps *ps)
+void		ft_error(char **av, int i, int j, t_ps *ps)
 {
 	if (M_ERROR != (M_ERROR & ps->opt))
 	{

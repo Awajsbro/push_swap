@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 10:15:36 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/17 17:54:25 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/22 13:24:59 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ void	ft_push(t_ps *ps, char m)
 			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_PB, 1));
 		}
 	}
-	// ft_printf("%[fd*]p%c\n", ps->fdw, m);
-	// ft_lstdebug(ps);
+	if ((ps->opt & M_VISUAL) == M_VISUAL)
+		{
+			ft_printf("%[fd2]\n    p%c\n", m);
+			ft_lstdebug(ps);
+		}
 	ps->lpa = ft_lststart(ps->lpa);
 	ps->lpb = ft_lststart(ps->lpb);
 }
@@ -60,8 +63,11 @@ void	ft_swap(t_ps *ps, char m)
 			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_SB, 1));
 		}
 	}
-	// ft_printf("%[fd*]s%c\n", ps->fdw, m);
-	// ft_lstdebug(ps);
+	if ((ps->opt & M_VISUAL) == M_VISUAL)
+		{
+			ft_printf("%[fd2]\n    s%c\n", m);
+			ft_lstdebug(ps);
+		}
 	ps->lpa = ft_lststart(ps->lpa);
 	ps->lpb = ft_lststart(ps->lpb);
 }
@@ -86,8 +92,11 @@ void	ft_roll(t_ps *ps, char m)
 			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_RB, 1));
 		}
 	}
-	// ft_printf("%[fd*]r%c\n", ps->fdw, m);
-	// ft_lstdebug(ps);
+	if ((ps->opt & M_VISUAL) == M_VISUAL)
+		{
+			ft_printf("%[fd2]\n    r%c\n", m);
+			ft_lstdebug(ps);
+		}
 	ps->lpa = ft_lststart(ps->lpa);
 	ps->lpb = ft_lststart(ps->lpb);
 }
@@ -109,18 +118,21 @@ void	ft_revers_roll(t_ps *ps, char m)
 		{
 			ps->lpb = ft_lstend(ps->lpb);
 			ft_lstaddstart(&(ps->lpb), ft_lstremove(&(ps->lpb)));
-			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_RRA, 1));
+			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_RRB, 1));
 		}
 	}
-	// ft_printf("%[fd*]rr%c\n", ps->fdw, m);
-	// ft_lstdebug(ps);
+	if ((ps->opt & M_VISUAL) == M_VISUAL)
+		{
+			ft_printf("%[fd2]\n    rr%c\n", m);
+			ft_lstdebug(ps);
+		}
 	ps->lpa = ft_lststart(ps->lpa);
 	ps->lpb = ft_lststart(ps->lpb);
 }
 
-char	ft_check_order(t_ps *ps)
+char	ft_check_result(t_ps *ps)
 {
-	long long	i;
+	int	i;
 
 	i = 0;
 	if (ps->lpb != NULL)

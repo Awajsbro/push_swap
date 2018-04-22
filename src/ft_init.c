@@ -6,16 +6,16 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:30:54 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/15 17:25:32 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void		ft_check_arg(long long ac, char **av, long long i, t_ps *ps)
+void		ft_check_arg(int ac, char **av, int i, t_ps *ps)
 {
-	long long	j;
-	long long	tmp;
+	int	j;
+	int	tmp;
 	char		m;
 
 	if (ac - i < 1)
@@ -40,7 +40,7 @@ void		ft_check_arg(long long ac, char **av, long long i, t_ps *ps)
 	}
 }
 
-static char	ft_word(char *s, long long *i)
+static char	ft_word(char *s, int *i)
 {
 	char		w;
 
@@ -56,12 +56,12 @@ static char	ft_word(char *s, long long *i)
 	return (w);
 }
 
-static char	**ft_real_merge(long long *ac, char **av, char **tab, long long m)
+static char	**ft_real_merge(int *ac, char **av, char **tab, int m)
 {
 	char		**tmp;
-	long long	i;
-	long long	j;
-	long long	w;
+	int	i;
+	int	j;
+	int	w;
 
 	j = 0;
 	while (j < *ac)
@@ -84,11 +84,11 @@ static char	**ft_real_merge(long long *ac, char **av, char **tab, long long m)
 	return (tab);
 }
 
-char		**ft_merge(long long *ac, char **av)
+char		**ft_merge(int *ac, char **av)
 {
-	long long	i;
-	long long	j;
-	long long	cnt;
+	int	i;
+	int	j;
+	int	cnt;
 	char		**tab;
 
 	i = -1;

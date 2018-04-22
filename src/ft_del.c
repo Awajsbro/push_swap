@@ -6,15 +6,15 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 17:35:04 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/11 18:56:41 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_deltab(char **tab, long long len)
+void	ft_deltab(char **tab, int len)
 {
-	long long	i;
+	int	i;
 
 	i = -1;
 	while (++i < len)

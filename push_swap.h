@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:11:01 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/22 12:51:03 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/25 18:44:22 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,12 @@ void			ft_dellst(t_ps *ps);
  */
 void			ft_lstdebug(t_ps *ps);
 void			ft_valcmd(t_ps *ps);
+
+
+// jouer ratio sequence / alternate
+// faire ratio nombre de coup/ nombre de nombre
+
+
+
 
 #endif

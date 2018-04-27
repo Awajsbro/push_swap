@@ -6,7 +6,7 @@
 #    By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/28 16:56:20 by awajsbro          #+#    #+#              #
-#    Updated: 2018/04/22 12:25:59 by awajsbro         ###   ########.fr        #
+#    Updated: 2018/04/27 17:05:16 by awajsbro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCPS		=	src/main_push_swap.c \
 				src/ft_reduce.c \
 				src/ft_under6.c \
 				src/ft_tool.c \
+				src/ft_tool2.c \
 
 SRCCHECK	=	src/main_checker.c \
 				src/ft_command.c \

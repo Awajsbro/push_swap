@@ -6,7 +6,7 @@
 #    By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/28 16:56:20 by awajsbro          #+#    #+#              #
-#    Updated: 2018/04/22 12:25:59 by awajsbro         ###   ########.fr        #
+#    Updated: 2018/04/28 15:39:29 by awajsbro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCPS		=	src/main_push_swap.c \
 				src/ft_reduce.c \
 				src/ft_under6.c \
 				src/ft_tool.c \
+				src/ft_tool2.c \
 
 SRCCHECK	=	src/main_checker.c \
 				src/ft_command.c \
@@ -73,6 +74,24 @@ $(NAMECHECK) :
 	@mv $(OBJCOM) $(OBJCHECK) $(OBJDIR)
 	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK)
 	@echo "\033[36m	CHECKER\033[33m  ====\033[1m> \033[32;1mREADY TO USE\033[0m"
+
+nolib :
+	@mkdir -p $(OBJDIR)
+	@gcc -Wextra -Wall -Werror -c $(SRC)
+	@mv $(OBJ) $(OBJDIR)
+	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJPS) $(OBJCOM)) $(LIBFT) -o $(NAMEPS)
+	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK)
+	@echo "\033[36m	PUSH_SWAP\033[33m ====\033[1m> \033[32;1mREADY TO USE\033[0m"
+	@echo "\033[36m	CHECKER\033[33m   ====\033[1m> \033[32;1mREADY TO USE\033[0m"
+
+debug :
+	@mkdir -p $(OBJDIR)
+	@gcc -ggdb -Wextra -Wall -Werror -c $(SRC)
+	@mv $(OBJ) $(OBJDIR)
+	@gcc -ggdb -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJPS) $(OBJCOM)) $(LIBFT) -o $(NAMEPS)
+	@gcc -ggdb -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK)
+	@echo "\033[36m	PUSH_SWAP\033[33m ====\033[1m> \033[32;1mREADY TO USE\033[0m"
+	@echo "\033[36m	CHECKER\033[33m   ====\033[1m> \033[32;1mREADY TO USE\033[0m"
 
 clean :
 	@$(MAKE) clean -C $(LIB_DIR)

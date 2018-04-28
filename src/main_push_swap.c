@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 19:57:57 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/22 12:22:36 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/27 16:53:23 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ int			main(int ac, char **av)
 	ft_get_arg(j, arg, i, &ps);
 	ps.cmd = ft_strnew(1);
 	(ps.cmd)[0] = M_VID;
-	ps.cpy = ft_lstcpy(ps.lpa);
 	if (ft_check_result(&ps) == 0)
-		ft_solve(&ps);
+		ft_solve_select(&ps);
 	ft_reduce(&ps);
 	ft_deltab(arg, j);
 	ft_dellst(&ps);

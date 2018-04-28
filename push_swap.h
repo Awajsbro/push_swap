@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:11:01 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/25 18:44:22 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/27 17:37:53 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,16 @@ typedef struct	s_ps
 {
 	t_list		*lpa;
 	t_list		*lpb;
-	t_list		*cpy;
-	int 	len;
+	int 		len;
 	char		opt;
 	char		*cmd;
 	int			fdr;
 	int			fdw;
 }				t_ps;
 
+
+int				ft_begin_up(t_list *cpy);
+int				ft_begin_down(t_list *cpy);
 /*
 **		##  RULES  ##
 */
@@ -66,7 +68,7 @@ void			ft_get_cmd(t_ps *ps);
 /*
 **		##  SOLVER  ##
 */
-void			ft_solve(t_ps *ps);
+void			ft_solve_select(t_ps *ps);
 void			ft_reduce(t_ps *ps);
 void			ft_under6(t_ps *ps);
 

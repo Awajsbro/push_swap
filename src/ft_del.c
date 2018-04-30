@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 17:35:04 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/29 15:18:10 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_deltab(char **tab, int len)
 
 void	ft_dellst(t_ps *ps)
 {
-	if (ps->lpa != NULL)
-		ft_lstdel(&(ps->lpa));
-	if (ps->lpb != NULL)
-		ft_lstdel(&(ps->lpb));
+	if (LPA != NULL)
+		ft_lstdel(&(LPA));
+	if (LPB != NULL)
+		ft_lstdel(&(LPB));
 }

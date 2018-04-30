@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 11:29:59 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/27 17:45:20 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/30 15:31:05 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	ft_order_lst(t_list *lst)
 {
 	t_list	*tmp;
 
+	if (lst == NULL)
+		return (1);
 	tmp = ft_lststart(lst);
 	while (tmp->next != NULL)
 	{

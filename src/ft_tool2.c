@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 17:01:28 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/28 18:35:32 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/29 14:28:39 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ static int	ft_sequence_up(t_list *lst, t_list *tmp)
 		else
 			break ;
 	}
-ft_putendl("je vais encore bien");
 	ft_lstdel(&lst);
-ft_putendl("je vais toujours bien");
 	return ((i * 10) + 3);
 }
 
@@ -66,7 +64,6 @@ static int	ft_sequence_down(t_list *lst, t_list *tmp)
 
 static int	ft_alternate_up(t_list *lst, t_list *tmp)
 {
-ft_putendl("la par contre je vais casser");
 	int		i;
 	int		size;
 
@@ -94,7 +91,6 @@ ft_putendl("la par contre je vais casser");
 	if (tmp->size > size || lst->size > size)
 		i++;
 	ft_lstdel(&lst);
-ft_putendl("voila j'ai peter");
 	return ((i * 10) + 1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:11:01 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/27 17:37:53 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/30 15:38:11 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft/libft.h"
 
+# define LPA			ps->lpa
+# define LPB			ps->lpb
 # define M_COLOR		0x01
 # define M_VISUAL		0x02
 # define M_ERROR		0x04
@@ -52,9 +54,13 @@ int				ft_begin_down(t_list *cpy);
 **		##  RULES  ##
 */
 void			ft_push(t_ps *ps, char m);
+char			push(t_ps *ps, char m, t_list **start, t_list **end);
 void			ft_swap(t_ps *ps, char m);
+char			swap(t_ps *ps, char m, t_list **start, t_list **end);
 void			ft_roll(t_ps *ps, char m);
+char			roll(t_ps *ps, char m, t_list **start, t_list **end);
 void			ft_revers_roll(t_ps *ps, char m);
+char			revers_roll(t_ps *ps, char m, t_list **start, t_list **end);
 
 /*
 **		##  INIT  ##

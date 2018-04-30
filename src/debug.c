@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 14:06:19 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/04/29 15:18:10 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ static void	ft_print_debug(t_ps *ps, int *len)
 	t_list		*tmp2;
 	int	i;
 
-	tmp1 = ps->lpa;
-	tmp2 = ps->lpb;
+	tmp1 = LPA;
+	tmp2 = LPB;
 	i = len[0] + len[1] + 7;
 	ft_putchar_fd(' ', 2);
 	while (i--)
@@ -72,24 +72,24 @@ void	ft_lstdebug(t_ps *ps)
 	int	len[2];
 	t_list		*tmp;
 
-	ps->lpa = ft_lststart(ps->lpa);
-	ps->lpb = ft_lststart(ps->lpb);
-	len[0] = ft_strlen(ps->lpa->content);
-	tmp = ps->lpa->next;
+	LPA = ft_lststart(LPA);
+	LPB = ft_lststart(LPB);
+	len[0] = LPA != NULL ? ft_strlen(LPA->content) : 0;
+	tmp = LPA != NULL ? LPA->next : NULL;
 	while (tmp != NULL)
 	{
 		len[1] = ft_strlen(tmp->content);
 		len[0] = len[0] >= len[1] ? len[0] : len[1];
 		tmp = tmp->next;
 	}
-	tmp = ps->lpb;
+	tmp = LPB;
 	while (tmp != NULL)
 	{
 		len[1] = ft_strlen(tmp->content);
 		len[0] = len[0] >= len[1] ? len[0] : len[1];
 		tmp = tmp->next;
 	}
-	len[1] = ft_cntb(ft_lstlen(ps->lpa) + ft_lstlen(ps->lpb), 10);
+	len[1] = ft_cntb(ft_lstlen(LPA) + ft_lstlen(LPB), 10);
 	ft_print_debug(ps, len);
 }
 

@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 19:57:57 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/27 16:53:23 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/02 12:38:18 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			main(int ac, char **av)
 		ft_solve_select(&ps);
 	ft_reduce(&ps);
 	ft_deltab(arg, j);
-	ft_dellst(&ps);
+	ft_dellst(ps.lpa, ps.lpb);
 	exit(EXIT_SUCCESS);
 	return (0);
 }

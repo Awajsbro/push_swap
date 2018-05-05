@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 15:06:20 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/02 12:39:14 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void		ft_get_cmd(t_ps *ps)
 	{
 		ft_error_cm(cm, ps);
 		free(tmp);
-		ft_dellst(ps);
+		ft_dellst(LPA, LPB);
 		exit(EXIT_FAILURE);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:11:01 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/30 15:38:11 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/05 17:26:35 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft/libft.h"
 
+# define AJU2			13
+# define AJU3			11
 # define LPA			ps->lpa
 # define LPB			ps->lpb
 # define M_COLOR		0x01
@@ -55,12 +57,16 @@ int				ft_begin_down(t_list *cpy);
 */
 void			ft_push(t_ps *ps, char m);
 char			push(t_ps *ps, char m, t_list **start, t_list **end);
+char			fake_push(t_list **lsa, t_list **lsb, t_list **end);
 void			ft_swap(t_ps *ps, char m);
 char			swap(t_ps *ps, char m, t_list **start, t_list **end);
+char			fake_swap(t_list **lsa, t_list **end);
 void			ft_roll(t_ps *ps, char m);
 char			roll(t_ps *ps, char m, t_list **start, t_list **end);
+char			fake_roll(t_list **lsa, t_list **end);
 void			ft_revers_roll(t_ps *ps, char m);
 char			revers_roll(t_ps *ps, char m, t_list **start, t_list **end);
+char			fake_revers_roll(t_list **lsa, t_list **end);
 
 /*
 **		##  INIT  ##
@@ -100,7 +106,7 @@ void			ft_error_double(t_list *tmp, t_ps ps);
  **		##  DELETE  ##
  */
 void			ft_deltab(char **av, int len);
-void			ft_dellst(t_ps *ps);
+void			ft_dellst(t_list *lsa, t_list *lsb);
 
  /*
  **		##  debug ##
@@ -111,7 +117,7 @@ void			ft_valcmd(t_ps *ps);
 
 // jouer ratio sequence / alternate
 // faire ratio nombre de coup/ nombre de nombre
-
+// ra pb rra pb == pb pb sb
 
 
 

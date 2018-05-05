@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 10:15:36 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/29 15:18:10 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/03 12:56:30 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,16 +134,23 @@ char	ft_check_result(t_ps *ps)
 {
 	int	i;
 
-	i = 0;
+	LPA = ft_lststart(LPA);
+	LPB = ft_lststart(LPB);
 	if (LPB != NULL)
 		return (0);
-	LPA = ft_lststart(LPA);
+	i = 0;
 	while (LPA != NULL)
 	{
 		i++;
 		if (i != LPA->size)
+		{
+			LPA = ft_lststart(LPA);
+			LPB = ft_lststart(LPB);
 			return (0);
+		}
 		LPA = LPA->next;
 	}
+	LPA = ft_lststart(LPA);
+	LPB = ft_lststart(LPB);
 	return (1);
 }

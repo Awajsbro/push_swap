@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 13:45:08 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/05 17:24:49 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/06 18:51:08 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,11 @@ void	ft_solve_select(t_ps *ps)
 		ft_under6(ps);
 	else
 	{
-		max = ((ps->len / AJU3) * AJU2) / 11;
-		// max = 0;
+		max = 0;
 		while (LPA != NULL)
 		{
 			mid = LPB == NULL ? 0 : max;
-			max = (ps->len / AJU3) > 0 ? max + (ps->len / AJU3) : max + 1;
+			max = (ft_lstlen(LPA) / AJU3) > 25 ? mid + (ft_lstlen(LPA) / AJU3) : mid + 25;
 			max = max > ps->len ? ps->len : max;
 			mid =  mid + ((max - mid) / 2);
 			while ((int)ft_lstlen(LPA) > ps->len - max)

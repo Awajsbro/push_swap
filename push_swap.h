@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:11:01 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/06 18:34:26 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/07 17:14:00 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft/libft.h"
 
-# define AJU3			5
+# define AJU3			6
 # define LPA			ps->lpa
 # define LPB			ps->lpb
 # define M_COLOR		0x01

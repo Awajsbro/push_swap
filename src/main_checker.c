@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 18:43:06 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/22 12:22:47 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/07 19:02:31 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	ft_checker(int ac, char **av, t_ps *ps)
 	ft_check_arg(ac, av, i, ps);
 	ft_get_arg(ac, av, i, ps);
 	ft_get_cmd(ps);
+	exit(EXIT_FAILURE);
 	if (ft_check_result(ps) == 1)
 	{
 		if ((ps->opt & M_COLOR) == M_COLOR)

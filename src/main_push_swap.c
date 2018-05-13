@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 19:57:57 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/02 12:38:18 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/12 14:31:03 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int			main(int ac, char **av)
 {
-	int	j;
-	int	i;
-	t_ps		ps;
-	char		**arg;
+	int		j;
+	int		i;
+	t_ps	ps;
+	char	**arg;
 
 	if (ac < 2)
 		return (0);
@@ -29,13 +29,13 @@ int			main(int ac, char **av)
 	ft_get_setting(j, arg, &i, &ps);
 	ft_check_arg(j, arg, i, &ps);
 	ft_get_arg(j, arg, i, &ps);
+	ft_deltab(arg, j);
+	if (ft_check_result(&ps) == 1)
+		return (0);
 	ps.cmd = ft_strnew(1);
 	(ps.cmd)[0] = M_VID;
-	if (ft_check_result(&ps) == 0)
-		ft_solve_select(&ps);
+	ft_solve_select(&ps);
 	ft_reduce(&ps);
-	ft_deltab(arg, j);
 	ft_dellst(ps.lpa, ps.lpb);
-	exit(EXIT_SUCCESS);
 	return (0);
 }

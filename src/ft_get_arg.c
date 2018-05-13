@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/01 18:16:42 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/29 15:18:10 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/12 12:26:17 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	ft_order_str(t_ps *ps)
 {
-	int	len;
-	int	pos;
+	int			len;
+	int			pos;
 	t_list		*tmp;
 	t_list		*cp;
 

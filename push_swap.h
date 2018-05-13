@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:11:01 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/07 17:14:00 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 15:21:56 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft/libft.h"
 
-# define AJU3			6
 # define LPA			ps->lpa
 # define LPB			ps->lpb
 # define M_COLOR		0x01
@@ -48,24 +47,17 @@ typedef struct	s_ps
 	int			fdw;
 }				t_ps;
 
-
-int				ft_begin_up(t_list *cpy);
-int				ft_begin_down(t_list *cpy);
 /*
 **		##  RULES  ##
 */
 void			ft_push(t_ps *ps, char m);
 char			push(t_ps *ps, char m, t_list **start, t_list **end);
-char			fake_push(t_list **lsa, t_list **lsb, t_list **end);
 void			ft_swap(t_ps *ps, char m);
 char			swap(t_ps *ps, char m, t_list **start, t_list **end);
-char			fake_swap(t_list **lsa, t_list **end);
 void			ft_roll(t_ps *ps, char m);
 char			roll(t_ps *ps, char m, t_list **start, t_list **end);
-char			fake_roll(t_list **lsa, t_list **end);
 void			ft_revers_roll(t_ps *ps, char m);
 char			revers_roll(t_ps *ps, char m, t_list **start, t_list **end);
-char			fake_revers_roll(t_list **lsa, t_list **end);
 
 /*
 **		##  INIT  ##
@@ -74,7 +66,6 @@ char			**ft_merge(int *ac, char **av);
 void			ft_get_setting(int ac, char **av, int *i, t_ps *ps);
 void			ft_check_arg(int ac, char **av, int i, t_ps *ps);
 void			ft_get_arg(int ac, char **av, int i, t_ps *ps);
-void			ft_get_cmd(t_ps *ps);
 
 /*
 **		##  SOLVER  ##
@@ -82,15 +73,17 @@ void			ft_get_cmd(t_ps *ps);
 void			ft_solve_select(t_ps *ps);
 void			ft_reduce(t_ps *ps);
 void			ft_under6(t_ps *ps);
+void			ft_rm_comeback_b_first(char *s, int i, int j);
+void			ft_rm_comeback_a_first(char *s, int i, int j);
+void			ft_reduce_by_a(char *s, int i, int j);
+void			ft_reduce_by_b(char *s, int i, int j);
 
 /*
 **		##  TOOL  ##
 */
-char			ft_check_result(t_ps *ps);
 char			ft_order_lst(t_list *lst);
-char			ft_reverse_order_lst(t_list *lst);
+char			ft_check_result(t_ps *ps);
 char			ft_max(t_list *lst);
-char			ft_min(t_list *lst);
 int				ft_find_min_roll(t_list *lst, int val);
 
 
@@ -111,13 +104,5 @@ void			ft_dellst(t_list *lsa, t_list *lsb);
  **		##  debug ##
  */
 void			ft_lstdebug(t_ps *ps);
-void			ft_valcmd(t_ps *ps);
-
-
-// jouer ratio sequence / alternate
-// faire ratio nombre de coup/ nombre de nombre
-// ra pb rra pb == pb pb sb
-
-
 
 #endif

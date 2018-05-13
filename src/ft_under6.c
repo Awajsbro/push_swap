@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/22 11:24:26 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/29 15:18:10 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/12 12:25:03 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		ft_under6(t_ps *ps)
 		tmp = ft_lstend(LPA);
 		if (LPA->size > LPA->next->size && ft_max(LPA->next) == 0
 			&& !(LPA->size == ps->len && LPA->next->size == 1))
-			ft_swap(ps, 'a');
+			swap(ps, 'a', &LPA, NULL);
 		else if ((tmp->size < LPA->size && LPA->size != ps->len)
 			|| ft_max(LPA->next) == 1)
 			ft_revers_roll(ps, 'a');

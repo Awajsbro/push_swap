@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 10:15:36 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/03 12:56:30 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 14:43:35 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	ft_push(t_ps *ps, char m)
 		}
 	}
 	if ((ps->opt & M_VISUAL) == M_VISUAL)
-		{
-			ft_printf("%[fd2]\n    p%c\n", m);
-			ft_lstdebug(ps);
-		}
+	{
+		ft_printf("%[fd*]\n    p%c\n", ps->fdw, m);
+		ft_lstdebug(ps);
+	}
 	LPA = ft_lststart(LPA);
 	LPB = ft_lststart(LPB);
 }
@@ -64,12 +64,10 @@ void	ft_swap(t_ps *ps, char m)
 		}
 	}
 	if ((ps->opt & M_VISUAL) == M_VISUAL)
-		{
-			ft_printf("%[fd2]\n    s%c\n", m);
-			ft_lstdebug(ps);
-		}
-	LPA = ft_lststart(LPA);
-	LPB = ft_lststart(LPB);
+	{
+		ft_printf("%[fd*]\n    s%c\n", ps->fdw, m);
+		ft_lstdebug(ps);
+	}
 }
 
 void	ft_roll(t_ps *ps, char m)
@@ -93,10 +91,10 @@ void	ft_roll(t_ps *ps, char m)
 		}
 	}
 	if ((ps->opt & M_VISUAL) == M_VISUAL)
-		{
-			ft_printf("%[fd2]\n    r%c\n", m);
-			ft_lstdebug(ps);
-		}
+	{
+		ft_printf("%[fd*]\n    r%c\n", ps->fdw, m);
+		ft_lstdebug(ps);
+	}
 	LPA = ft_lststart(LPA);
 	LPB = ft_lststart(LPB);
 }
@@ -122,35 +120,10 @@ void	ft_revers_roll(t_ps *ps, char m)
 		}
 	}
 	if ((ps->opt & M_VISUAL) == M_VISUAL)
-		{
-			ft_printf("%[fd2]\n    rr%c\n", m);
-			ft_lstdebug(ps);
-		}
-	LPA = ft_lststart(LPA);
-	LPB = ft_lststart(LPB);
-}
-
-char	ft_check_result(t_ps *ps)
-{
-	int	i;
-
-	LPA = ft_lststart(LPA);
-	LPB = ft_lststart(LPB);
-	if (LPB != NULL)
-		return (0);
-	i = 0;
-	while (LPA != NULL)
 	{
-		i++;
-		if (i != LPA->size)
-		{
-			LPA = ft_lststart(LPA);
-			LPB = ft_lststart(LPB);
-			return (0);
-		}
-		LPA = LPA->next;
+		ft_printf("%[fd*]\n    rr%c\n", ps->fdw, m);
+		ft_lstdebug(ps);
 	}
 	LPA = ft_lststart(LPA);
 	LPB = ft_lststart(LPB);
-	return (1);
 }

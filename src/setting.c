@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:06:44 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 14:41:01 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,13 @@ void		ft_get_setting(int ac, char **av, int *i, t_ps *ps)
 		if (ps->fdr != 0)
 			ps->fdr = open(av[ps->fdr], O_RDONLY);
 		if (ps->fdw != 1)
-			ps->fdw = open(av[ps->fdw], O_WRONLY | O_CREAT | O_TRUNC);
+			ps->fdw = open(av[ps->fdw], O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU);
 	}
 	if (ps->fdr == -1 || ps->fdw == -1)
 	{
 		ft_error(av, -1, -1, ps);
 		exit(EXIT_FAILURE);
 	}
+	if (ps->fdw != 1)
+		ps->opt = (ps->opt & (~M_COLOR));
 }

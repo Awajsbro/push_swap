@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 18:43:06 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 17:23:16 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/15 12:57:12 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,38 @@
 
 static void	ft_exec_cmd(char *s, t_ps *ps)
 {
-	if (ft_strequ(s, "rra\n"))
+	if (ft_strequ(s, "rra"))
 		ft_revers_roll(ps, 'a');
-	else if (ft_strequ(s, "rrb\n"))
+	else if (ft_strequ(s, "rrb"))
 		ft_revers_roll(ps, 'b');
-	else if (ft_strequ(s, "rrr\n"))
+	else if (ft_strequ(s, "rrr"))
 		ft_revers_roll(ps, 'r');
-	else if (ft_strequ(s, "sa\n"))
+	else if (ft_strequ(s, "sa"))
 		ft_swap(ps, 'a');
-	else if (ft_strequ(s, "sb\n"))
+	else if (ft_strequ(s, "sb"))
 		ft_swap(ps, 'b');
-	else if (ft_strequ(s, "ss\n"))
+	else if (ft_strequ(s, "ss"))
 		ft_swap(ps, 's');
-	else if (ft_strequ(s, "pa\n"))
+	else if (ft_strequ(s, "pa"))
 		ft_push(ps, 'a');
-	else if (ft_strequ(s, "pb\n"))
+	else if (ft_strequ(s, "pb"))
 		ft_push(ps, 'b');
-	else if (ft_strequ(s, "ra\n"))
+	else if (ft_strequ(s, "ra"))
 		ft_roll(ps, 'a');
-	else if (ft_strequ(s, "rb\n"))
+	else if (ft_strequ(s, "rb"))
 		ft_roll(ps, 'b');
-	else if (ft_strequ(s, "rr\n"))
+	else if (ft_strequ(s, "rr"))
 		ft_roll(ps, 'r');
 }
 
 static char	ft_check_cmd(char *s, t_ps *ps)
 {
 	ft_exec_cmd(s, ps);
-	if (ft_strequ(s, "rra\n") || ft_strequ(s, "rrb\n") || ft_strequ(s, "rrr\n")
-		|| ft_strequ(s, "sa\n") || ft_strequ(s, "sb\n") || ft_strequ(s, "ss\n")
-			|| ft_strequ(s, "pa\n") || ft_strequ(s, "pb\n")
-				|| ft_strequ(s, "ra\n") || ft_strequ(s, "rb\n")
-					|| ft_strequ(s, "rr\n") || *s == '\n')
+	if (ft_strequ(s, "rra") || ft_strequ(s, "rrb") || ft_strequ(s, "rrr")
+		|| ft_strequ(s, "sa") || ft_strequ(s, "sb") || ft_strequ(s, "ss")
+			|| ft_strequ(s, "pa") || ft_strequ(s, "pb")
+				|| ft_strequ(s, "ra") || ft_strequ(s, "rb")
+					|| ft_strequ(s, "rr") || *s == 0)
 		return (1);
 	return (0);
 }

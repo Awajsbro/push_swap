@@ -6,7 +6,7 @@
 #    By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/28 16:56:20 by awajsbro          #+#    #+#              #
-#    Updated: 2018/05/13 15:36:28 by awajsbro         ###   ########.fr        #
+#    Updated: 2018/05/13 18:13:58 by awajsbro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ debug :
 
 clean :
 	@$(MAKE) clean -C $(LIB_DIR)
-	@rm -f $(addprefix $(OBJDIR), $(OBJ))
+	@rm -rf $(OBJDIR)
 	@echo "\033[31;1m	CLEANING DONE\033[0m"
 
 fclean : clean

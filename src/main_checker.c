@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 18:43:06 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 13:58:53 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 17:23:16 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ static char	ft_check_cmd(char *s, t_ps *ps)
 	ft_exec_cmd(s, ps);
 	if (ft_strequ(s, "rra\n") || ft_strequ(s, "rrb\n") || ft_strequ(s, "rrr\n")
 		|| ft_strequ(s, "sa\n") || ft_strequ(s, "sb\n") || ft_strequ(s, "ss\n")
-			|| ft_strequ(s, "pa\n") || ft_strequ(s, "pb\n") || ft_strequ(s, "ra\n")
-				|| ft_strequ(s, "rb\n") || ft_strequ(s, "rr\n") || *s == '\n')
-			return (1);
+			|| ft_strequ(s, "pa\n") || ft_strequ(s, "pb\n")
+				|| ft_strequ(s, "ra\n") || ft_strequ(s, "rb\n")
+					|| ft_strequ(s, "rr\n") || *s == '\n')
+		return (1);
 	return (0);
 }
 
@@ -63,7 +64,6 @@ static void	ft_get_cmd(t_ps *ps)
 			exit(EXIT_FAILURE);
 		}
 		free(s);
-		free(ps->cmd);
 	}
 }
 

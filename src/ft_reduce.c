@@ -6,37 +6,11 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 11:51:26 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 15:24:03 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 17:51:48 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-static void	ft_print_cmd_color(char *s, t_ps *ps)
-{
-	if (*s == M_SA || *s == M_BA)
-		write(ps->fdw, "\033[32;1msa\n\033[0m", 14);
-	else if (*s == M_SB || *s == M_BB)
-		write(ps->fdw, "\033[32;1msb\n\033[0m", 14);
-	else if (*s == M_SS)
-		write(ps->fdw, "\033[32;1mss\n\033[0m", 14);
-	else if (*s == M_PA)
-		write(ps->fdw, "\033[32;1mpa\n\033[0m", 14);
-	else if (*s == M_PB)
-		write(ps->fdw, "\033[32;1mpb\n\033[0m", 14);
-	else if (*s == M_RA)
-		write(ps->fdw, "\033[32;1mra\n\033[0m", 14);
-	else if (*s == M_RB)
-		write(ps->fdw, "\033[32;1mrb\n\033[0m", 14);
-	else if (*s == M_RR)
-		write(ps->fdw, "\033[32;1mrr\n\033[0m", 14);
-	else if (*s == M_RRA)
-		write(ps->fdw, "\033[32;1mrra\n\033[0m", 15);
-	else if (*s == M_RRB)
-		write(ps->fdw, "\033[32;1mrrb\n\033[0m", 15);
-	else if (*s == M_RRR)
-		write(ps->fdw, "\033[32;1mrrr\n\033[0m", 15);
-}
 
 static void	ft_print_cmd(char *s, t_ps *ps)
 {
@@ -109,11 +83,10 @@ void		ft_reduce(t_ps *ps)
 	}
 	i = -1;
 	while (ps->cmd[++i] != 0)
-	{
-		if (ps->cmd[i + 1] == 0 && (ps->opt & M_COLOR) == M_COLOR)
-			ft_print_cmd_color(&ps->cmd[i], ps);
-		else
-			ft_print_cmd(&ps->cmd[i], ps);
-	}
+		ft_print_cmd(&ps->cmd[i], ps);
+	if ((M_COUNT & ps->opt) == M_COUNT && (M_COLOR & ps->opt) == M_COLOR)
+		ft_printf("%[fd2]\033[32m\"%d\"\033[0m coup\n", ft_strlen(ps->cmd) - 1);
+	else if ((M_COUNT & ps->opt) == M_COUNT)
+		ft_printf("%[fd2]\"%d\" coup\n", ft_strlen(ps->cmd) - 1);
 	free(ps->cmd);
 }

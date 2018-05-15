@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 17:35:04 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/02 12:36:44 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 17:17:02 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	ft_dellst(t_list *lsa, t_list *lsb)
 	if (lsa != NULL)
 		ft_lstdel(&(lsa));
 	if (lsb != NULL)
-		ft_lstdel(&(lsa));
+		ft_lstdel(&(lsb));
 }

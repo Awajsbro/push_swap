@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:11:01 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 15:21:56 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 17:16:38 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define M_VISUAL		0x02
 # define M_ERROR		0x04
 # define M_INF			0x08
+# define M_COUNT		0x10
 # define M_SA			1
 # define M_SB			2
 # define M_RA			3

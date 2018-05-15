@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 12:37:03 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/04/22 12:18:31 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 17:56:11 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_more_error(char **av, int i, int j, t_ps *ps)
 	else if (i == 3)
 		ft_printf("%[fd2]\"%s\" isn't a valid number\n", av[j]);
 	else if (i == 0)
-		ft_printf("%[fd2]usage: %s [-c | -v | -e | -i | [-r <path>] | "
+		ft_printf("%[fd2]usage: %s [-c | -v | -e | -i | -l | [-r <path>] | "
 			"[-w <path>]] %{state_soul}Data ...\033[0m\n", &av[0][2]);
 	else if (i == -1)
 		ft_putendl_fd("a wild probleme appears", 2);
@@ -40,11 +40,11 @@ void		ft_error(char **av, int i, int j, t_ps *ps)
 			write(2, "Error\n", 6);
 	}
 	else if (i == 1 && M_COLOR == (M_COLOR & ps->opt))
-		ft_printf("%[fd2]usage: %s [-c | -v | -e | -i | [-r <path>] | "
+		ft_printf("%[fd2]usage: %s [-c | -v | -e | -i | -l | [-r <path>] | "
 			"[-w <path>]] %{state_soul}%{rou}Data ...%{reset_stat}\n"
 				"Data is missing\033[0m\n", &av[0][2]);
 	else if (i == 1)
-		ft_printf("%[fd2]usage: \"%s\" [-c | -v | -e | -i | [-r <path>] | "
+		ft_printf("%[fd2]usage: \"%s\" [-c | -v | -e | -i | -l | [-r <path>] | "
 		"[-w <path>]] %{state_soul}Data ...%{reset_stat}\nData is "
 			"missing\n", &av[0][2]);
 	else if (i == 2 && M_COLOR == (M_COLOR & ps->opt))

@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:06:44 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 14:41:01 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 18:08:04 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static void	ft_more_space(int ac, char **av, int *i, t_ps *ps)
 			ps->opt = (ps->opt | M_ERROR);
 		else if (av[*i][j] == 'i' || av[*i][j] == 'I')
 			ps->opt = (ps->opt | M_INF);
+		else if (av[*i][j] == 'l' || av[*i][j] == 'L')
+			ps->opt = (ps->opt | M_COUNT);
 		else
 		{
 			ft_error(av, 0, 0, ps);
@@ -36,34 +38,8 @@ static void	ft_more_space(int ac, char **av, int *i, t_ps *ps)
 	}
 }
 
-void		ft_get_setting(int ac, char **av, int *i, t_ps *ps)
+static void	ft_more_more_space(char **av, t_ps *ps)
 {
-	while (av[*i][0] == '-' && ft_isdigit(av[*i][1]) == 0)
-	{
-		if (av[*i][1] == 'r' || av[*i][1] == 'R')
-		{
-			(*i)++;
-			ps->fdr = *i;
-		}
-		else if (av[*i][1] == 'w' || av[*i][1] == 'W')
-		{
-			(*i)++;
-			ps->fdw = *i;
-		}
-		else if (av[*i][1] == 'c' || av[*i][1] == 'C' || av[*i][1] == 'v'
-			|| av[*i][1] == 'V' || av[*i][1] == 'e' || av[*i][1] == 'E'
-				|| av[*i][1] == 'i' || av[*i][1] == 'I')
-			ft_more_space(ac, av, i, ps);
-		else
-		{
-			ft_error(av, 0, 0, ps);
-			ft_deltab(av, ac);
-			exit(EXIT_FAILURE);
-		}
-		(*i)++;
-		if (*i == ac)
-			break ;
-	}
 	if (ft_strcmp(av[ps->fdr], av[ps->fdw]) == 0 && ps->fdr != 0)
 	{
 		ps->fdr = open(av[ps->fdr], O_RDWR | O_APPEND);
@@ -83,4 +59,32 @@ void		ft_get_setting(int ac, char **av, int *i, t_ps *ps)
 	}
 	if (ps->fdw != 1)
 		ps->opt = (ps->opt & (~M_COLOR));
+}
+
+void		ft_get_setting(int ac, char **av, int *i, t_ps *ps)
+{
+	while (av[*i][0] == '-' && ft_isdigit(av[*i][1]) == 0)
+	{
+		if (av[*i][1] == 'r' || av[(*i)][1] == 'R'
+			|| av[(*i)][1] == 'w' || av[*i][1] == 'W')
+		{
+			(*i)++;
+			if (av[(*i - 1)][1] == 'r' || av[(*i) - 1][1] == 'R')
+				ps->fdr = *i;
+			else
+				ps->fdw = *i;
+		}
+		else if (av[*i][1] == 'c' || av[*i][1] == 'v' || av[*i][1] == 'e'
+			|| av[*i][1] == 'i' || av[*i][1] == 'l')
+			ft_more_space(ac, av, i, ps);
+		else
+		{
+			ft_error(av, 0, 0, ps);
+			ft_deltab(av, ac);
+			exit(EXIT_FAILURE);
+		}
+		if (++(*i) == ac)
+			break ;
+	}
+	ft_more_more_space(av, ps);
 }

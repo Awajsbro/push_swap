@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 14:06:19 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 14:45:13 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/13 15:57:21 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	ft_content_color(t_list *tmp1, t_list *tmp2, int *len, t_ps *ps)
 static void	ft_content(t_list *tmp1, t_list *tmp2, int *len, t_ps *ps)
 {
 	ft_printf("%[fd*]\n/%*s%*s%*s%*c\n", ps->fdw,
-		((len[0] + len[1] + 5) / 2) + 3, "lpa", 	(len[0] + len[1] + 14) / 2,
+		((len[0] + len[1] + 5) / 2) + 3, "lpa", (len[0] + len[1] + 14) / 2,
 			"\\   /", (len[0] + len[1] + 11) / 2, "lpb",
 				((len[0] + len[1]) / 2) + 3, '\\');
 	while (tmp1 != NULL || tmp2 != NULL)

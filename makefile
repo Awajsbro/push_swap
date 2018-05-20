@@ -6,7 +6,7 @@
 #    By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/28 16:56:20 by awajsbro          #+#    #+#              #
-#    Updated: 2018/05/13 18:13:58 by awajsbro         ###   ########.fr        #
+#    Updated: 2018/05/20 12:54:33 by awajsbro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRCPS		=	src/main_push_swap.c \
 				src/ft_rule2.c \
 
 SRCCHECK	=	src/main_checker.c \
+				src/visualiser.c \
+				src/visualiser2.c \
 
 SRC			=	$(SRCCOM) $(SRCPS) $(SRCCHECK)
 
@@ -54,7 +56,7 @@ all :
 	@gcc -Wextra -Wall -Werror -c $(SRC)
 	@mv $(OBJ) $(OBJDIR)
 	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJPS) $(OBJCOM)) $(LIBFT) -o $(NAMEPS)
-	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK)
+	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK) -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 	@echo "\033[36m	PUSH_SWAP\033[33m ====\033[1m> \033[32;1mREADY TO USE\033[0m"
 	@echo "\033[36m	CHECKER\033[33m   ====\033[1m> \033[32;1mREADY TO USE\033[0m"
 
@@ -71,7 +73,7 @@ $(NAMECHECK) :
 	@mkdir -p $(OBJDIR)
 	@gcc -Wextra -Wall -Werror -c $(SRCCHECK) $(SRCCOM)
 	@mv $(OBJCOM) $(OBJCHECK) $(OBJDIR)
-	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK)
+	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK) -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 	@echo "\033[36m	CHECKER\033[33m  ====\033[1m> \033[32;1mREADY TO USE\033[0m"
 
 nolib :
@@ -79,7 +81,7 @@ nolib :
 	@gcc -Wextra -Wall -Werror -c $(SRC)
 	@mv $(OBJ) $(OBJDIR)
 	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJPS) $(OBJCOM)) $(LIBFT) -o $(NAMEPS)
-	@gcc -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK)
+	@gcc -Wall -Werror -Wextra -I /usr/local/include $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit $(LIBFT) -o $(NAMECHECK)
 	@echo "\033[36m	PUSH_SWAP\033[33m ====\033[1m> \033[32;1mREADY TO USE\033[0m"
 	@echo "\033[36m	CHECKER\033[33m   ====\033[1m> \033[32;1mREADY TO USE\033[0m"
 
@@ -88,7 +90,7 @@ debug :
 	@gcc -ggdb -Wextra -Wall -Werror -c $(SRC)
 	@mv $(OBJ) $(OBJDIR)
 	@gcc -ggdb -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJPS) $(OBJCOM)) $(LIBFT) -o $(NAMEPS)
-	@gcc -ggdb -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK)
+	@gcc -ggdb -Wall -Werror -Wextra $(addprefix $(OBJDIR), $(OBJCHECK) $(OBJCOM)) $(LIBFT) -o $(NAMECHECK) -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 	@echo "\033[36m	PUSH_SWAP\033[33m ====\033[1m> \033[32;1mREADY TO USE\033[0m"
 	@echo "\033[36m	CHECKER\033[33m   ====\033[1m> \033[32;1mREADY TO USE\033[0m"
 

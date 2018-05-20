@@ -6,7 +6,7 @@
 #    By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/26 18:08:32 by aroulin           #+#    #+#              #
-#    Updated: 2018/04/11 15:33:01 by awajsbro         ###   ########.fr        #
+#    Updated: 2018/05/20 12:43:30 by awajsbro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ echo "Analyse in progress ...\n\n";
 while [ $IND -gt 0 ];
 do
 	ARG=`ruby -e "puts ($NBRBOT..$NBRTOP).to_a.shuffle.join(' ')"`
+	# echo $ARG
 	NBRCOUP=$(./push_swap $ARG | wc -l);
 	TEST=$(./push_swap $ARG | ./checker $ARG);
 	if [ "$TEST" = "OK" ];

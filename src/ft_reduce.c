@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 11:51:26 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 17:51:48 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/20 13:17:14 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ static void	ft_print_cmd(char *s, t_ps *ps)
 		write(ps->fdw, "rrb\n", 4);
 	else if (*s == M_RRR)
 		write(ps->fdw, "rrr\n", 4);
+}
+
+static void	ft_print_cmd_color(char *s, t_ps *ps)
+{
+	write(ps->fdw, "\033[31m", 5);
+	ft_print_cmd(s, ps);
+	write(ps->fdw, "\033[0m", 4);
 }
 
 static char	*ft_remove_void(char *s)
@@ -82,7 +89,11 @@ void		ft_reduce(t_ps *ps)
 		ps->cmd = ft_remove_void(ps->cmd);
 	}
 	i = -1;
-	while (ps->cmd[++i] != 0)
+	while (ps->cmd[++i] != 0 && ps->cmd[i + 1] != 0)
+		ft_print_cmd(&ps->cmd[i], ps);
+	if ((M_COLOR & ps->opt) == M_COLOR)
+		ft_print_cmd_color(&ps->cmd[i], ps);
+	else
 		ft_print_cmd(&ps->cmd[i], ps);
 	if ((M_COUNT & ps->opt) == M_COUNT && (M_COLOR & ps->opt) == M_COLOR)
 		ft_printf("%[fd2]\033[32m\"%d\"\033[0m coup\n", ft_strlen(ps->cmd) - 1);

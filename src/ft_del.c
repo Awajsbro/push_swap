@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 17:35:04 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 17:17:02 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/20 12:27:19 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	ft_deltab(char **tab, int len)
 void	ft_dellst(t_list *lsa, t_list *lsb)
 {
 	if (lsa != NULL)
+	{
 		ft_lstdel(&(lsa));
+	}
 	if (lsb != NULL)
 		ft_lstdel(&(lsb));
 }

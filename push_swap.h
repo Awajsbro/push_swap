@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 16:11:01 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/15 11:44:56 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/20 13:33:15 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <mlx.h>
 
 # define LPA			ps->lpa
 # define LPB			ps->lpb
@@ -37,6 +38,22 @@
 # define M_BB			50
 # define M_VID			90
 
+typedef struct	s_visu
+{
+	void		*mlx;
+	void		*win;
+	void		*img_ptr;
+	char		*img;
+	int			bpp;
+	int			s_l;
+	int			endian;
+	char		stop;
+	char		end;
+	int			delay;
+	int			xsize;
+	int			ysize;
+}				t_visu;
+
 typedef struct	s_ps
 {
 	t_list		*lpa;
@@ -46,6 +63,7 @@ typedef struct	s_ps
 	char		*cmd;
 	int			fdr;
 	int			fdw;
+	t_visu		*visu;
 }				t_ps;
 
 void			ft_push(t_ps *ps, char m);
@@ -59,6 +77,7 @@ char			revers_roll(t_ps *ps, char m, t_list **start, t_list **end);
 char			**ft_merge(int *ac, char **av);
 void			ft_get_setting(int ac, char **av, int *i, t_ps *ps);
 void			ft_check_arg(int ac, char **av, int i, t_ps *ps);
+char			ft_check_cmd(char *s, t_ps *ps);
 void			ft_get_arg(int ac, char **av, int i, t_ps *ps);
 void			ft_solve_select(t_ps *ps);
 void			ft_reduce(t_ps *ps);
@@ -77,5 +96,8 @@ void			ft_error_double(t_list *tmp, t_ps ps);
 void			ft_deltab(char **av, int len);
 void			ft_dellst(t_list *lsa, t_list *lsb);
 void			ft_lstdebug(t_ps *ps);
+int				ft_exec_key(int key, t_visu *visu);
+void			visualiser(t_ps *ps);
+void			ft_setup_visu(t_ps *ps);
 
 #endif

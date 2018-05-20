@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 19:57:57 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 17:16:59 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/20 11:56:29 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int			main(int ac, char **av)
 		return (0);
 	ps.fdr = 0;
 	ps.fdw = 1;
+	ps.opt = 0;
 	j = ac;
 	i = 1;
 	arg = ft_merge(&j, av);

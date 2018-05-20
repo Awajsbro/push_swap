@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 13:06:44 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 18:08:04 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/20 13:20:06 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ void		ft_get_setting(int ac, char **av, int *i, t_ps *ps)
 			break ;
 	}
 	ft_more_more_space(av, ps);
+	ps->opt = ps->fdw != 1 ? ps->opt & (~M_COLOR) : ps->opt;
 }

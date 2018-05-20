@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 10:15:36 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/13 14:43:35 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/15 17:15:48 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@ void	ft_push(t_ps *ps, char m)
 			ft_lstaddstart(&(LPB), ft_lstremove(&(LPA)));
 			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_PB, 1));
 		}
-	}
-	if ((ps->opt & M_VISUAL) == M_VISUAL)
-	{
-		ft_printf("%[fd*]\n    p%c\n", ps->fdw, m);
-		ft_lstdebug(ps);
 	}
 	LPA = ft_lststart(LPA);
 	LPB = ft_lststart(LPB);
@@ -63,11 +58,6 @@ void	ft_swap(t_ps *ps, char m)
 			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_SB, 1));
 		}
 	}
-	if ((ps->opt & M_VISUAL) == M_VISUAL)
-	{
-		ft_printf("%[fd*]\n    s%c\n", ps->fdw, m);
-		ft_lstdebug(ps);
-	}
 }
 
 void	ft_roll(t_ps *ps, char m)
@@ -89,11 +79,6 @@ void	ft_roll(t_ps *ps, char m)
 			ft_lstaddend(&(LPB), ft_lstremove(&(LPB)));
 			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_RB, 1));
 		}
-	}
-	if ((ps->opt & M_VISUAL) == M_VISUAL)
-	{
-		ft_printf("%[fd*]\n    r%c\n", ps->fdw, m);
-		ft_lstdebug(ps);
 	}
 	LPA = ft_lststart(LPA);
 	LPB = ft_lststart(LPB);
@@ -118,11 +103,6 @@ void	ft_revers_roll(t_ps *ps, char m)
 			ft_lstaddstart(&(LPB), ft_lstremove(&(LPB)));
 			ps->cmd = ft_joinfree(ps->cmd, ft_memset(ft_strnew(1), M_RRB, 1));
 		}
-	}
-	if ((ps->opt & M_VISUAL) == M_VISUAL)
-	{
-		ft_printf("%[fd*]\n    rr%c\n", ps->fdw, m);
-		ft_lstdebug(ps);
 	}
 	LPA = ft_lststart(LPA);
 	LPB = ft_lststart(LPB);

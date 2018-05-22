@@ -6,11 +6,14 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 17:30:54 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/12 12:38:34 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/20 19:27:03 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+#define MAXINT_S "2147483647"
+#define MININT_S "-2147483648"
 
 void		ft_check_arg(int ac, char **av, int i, t_ps *ps)
 {
@@ -25,8 +28,8 @@ void		ft_check_arg(int ac, char **av, int i, t_ps *ps)
 		tmp = ft_atoi(av[j]);
 		if (ft_strdigit(av[j]) == 0)
 			i = ac + 2;
-		else if ((tmp > 2147483647 || tmp < -2147483648)
-			&& (ps->opt & M_INF) != M_INF)
+		else if ((ps->opt & M_INF) != M_INF && (ft_istrcmp(av[j], MAXINT_S) == 1
+			|| ft_istrcmp(av[j], MININT_S) == -1))
 			i = ac + 1;
 		i++;
 	}
@@ -84,12 +87,11 @@ static char	**ft_real_merge(int *ac, char **av, char **tab, int m)
 
 char		**ft_merge(int *ac, char **av)
 {
-	int		i;
-	int		j;
-	int		cnt;
-	char	**tab;
+	static int	i = -1;
+	int			j;
+	int			cnt;
+	char		**tab;
 
-	i = -1;
 	cnt = 0;
 	while (++i < *ac)
 	{
@@ -107,6 +109,7 @@ char		**ft_merge(int *ac, char **av)
 		}
 	}
 	*ac = cnt;
-	tab = (char**)malloc(sizeof(tab) * cnt);
+	if (*ac == 1 || !(tab = (char**)malloc(sizeof(tab) * cnt)))
+		exit(EXIT_FAILURE);
 	return (ft_real_merge(ac, av, tab, 0));
 }

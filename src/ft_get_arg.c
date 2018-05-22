@@ -6,7 +6,7 @@
 /*   By: awajsbro <awajsbro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/01 18:16:42 by awajsbro          #+#    #+#             */
-/*   Updated: 2018/05/12 12:26:17 by awajsbro         ###   ########.fr       */
+/*   Updated: 2018/05/20 18:21:41 by awajsbro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	ft_check_double(t_ps ps)
 		tmp = ps.lpa->next;
 		while (tmp != NULL)
 		{
-			if (ft_strequ(tmp->content, ps.lpa->content) == 1)
+			if (ft_istrcmp(tmp->content, ps.lpa->content) == 0)
 			{
 				ft_error_double(tmp, ps);
 				return (0);
